@@ -62,7 +62,7 @@ export const Navbar = () => {
         onOpenChange={setIsSidebarOpen}
       />
 
-      <div className="item-center gap-4 hidden lg:flex">
+      <div className="items-center gap-4 hidden lg:flex">
         {navbarItems.map((item) => (
           <NavbarItem
             key={item.href}
