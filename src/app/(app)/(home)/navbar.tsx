@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { NavbarSidebar } from "@/app/(home)/navbar-sidebar";
+import { NavbarSidebar } from "@/app/(app)/(home)/navbar-sidebar";
 import { useState } from "react";
 import { MenuIcon } from "lucide-react";
 
