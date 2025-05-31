@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 import { CategoryDropdown } from "@/app/(app)/(home)/search-filters/category-dropdown";
-import { CustomCategory } from "@/app/(app)/(home)/types";
 import { CategorySidebar } from "@/app/(app)/(home)/search-filters/category-sidebar";
+import { CategoriesGetManyOutput } from "@/modules/categories/type";
 
 interface Props {
-  data: CustomCategory[];
+  data: CategoriesGetManyOutput;
 }
 
 export const Categories = ({ data }: Props) => {
@@ -64,11 +64,7 @@ export const Categories = ({ data }: Props) => {
   return (
     <div className="relative w-full">
       {/* Category sidebar */}
-      <CategorySidebar
-        open={isSidebarOpen}
-        onOpenChange={setIsSidebarOpen}
-        data={data}
-      />
+      <CategorySidebar open={isSidebarOpen} onOpenChange={setIsSidebarOpen} />
       <div
         ref={measureRef}
         className="absolute opacity-0 pointer-events-none flex"
