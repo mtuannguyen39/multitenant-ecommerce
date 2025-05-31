@@ -13,7 +13,7 @@ export const SubcategoryMenu = ({ category, isOpen, position }: Props) => {
   if (
     !isOpen ||
     !category.subcategories ||
-    category.subcategories?.docs?.length === 0
+    category.subcategories.length === 0
   ) {
     return null;
   }
@@ -32,20 +32,15 @@ export const SubcategoryMenu = ({ category, isOpen, position }: Props) => {
         className="w-60 text-black rounded-md overflow-hidden border shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -transale-x-[2px] -transale-y-[2px]"
       >
         <div>
-          {category.subcategories?.docs
-            ?.filter(
-              (subcategory): subcategory is Category =>
-                typeof subcategory !== "string"
-            )
-            .map((subcategory) => (
-              <Link
-                key={subcategory.slug}
-                href={`/${category.slug}/${subcategory.slug}`}
-                className="w-full text-left p-4 hover:bg-black hover:text-white flex justify-between items-center underline font-medium"
-              >
-                {subcategory.name}
-              </Link>
-            ))}
+          {category.subcategories.map((subcategory) => (
+            <Link
+              key={subcategory.slug}
+              href={`/${category.slug}/${subcategory.slug}`}
+              className="w-full text-left p-4 hover:bg-black hover:text-white flex justify-between items-center underline font-medium"
+            >
+              {subcategory.name}
+            </Link>
+          ))}
         </div>
       </div>
     </div>
