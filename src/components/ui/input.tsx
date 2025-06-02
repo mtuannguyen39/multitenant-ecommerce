@@ -2,6 +2,13 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * Renders a styled input element with customizable props and enhanced accessibility.
+ *
+ * Applies a set of predefined CSS classes for consistent appearance, including focus, disabled, and invalid states. Accepts all standard input attributes and merges additional classes via the {@link className} prop.
+ *
+ * @returns A React input element with extended styling and accessibility features.
+ */
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
     <input
