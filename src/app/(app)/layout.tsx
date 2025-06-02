@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { TRPCReactProvider } from "@/trpc/client";
+import { Toaster } from "@/components/ui/sonner";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Root layout component that sets up global HTML structure, applies the DM Sans font, and provides tRPC context to all child components.
+ * Root layout component that defines the global HTML structure, applies the DM Sans font, and provides tRPC context and toast notifications to all child components.
  *
  * @param children - The content to be rendered within the layout.
  */
@@ -25,7 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${dmSans.className} antialiased`}>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          {children}
+          <Toaster />
+        </TRPCReactProvider>
       </body>
     </html>
   );

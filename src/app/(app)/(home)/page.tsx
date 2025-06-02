@@ -1,8 +1,16 @@
+"use client";
+
+import { useTRPC } from "@/trpc/client";
+import { useQuery } from "@tanstack/react-query";
+
 /**
- * Renders the Home page component with a simple "Home" label.
+ * Displays the current user's session information as formatted JSON.
  *
- * @returns A JSX element displaying the text "Home".
+ * Fetches session data using TRPC and React Query, and renders the `user` property from the session.
  */
 export default function Home() {
-  return <div>Home</div>;
+  const trpc = useTRPC();
+  const { data } = useQuery(trpc.auth.session.queryOptions());
+
+  return <div>{JSON.stringify(data?.user, null, 2)}</div>;
 }
