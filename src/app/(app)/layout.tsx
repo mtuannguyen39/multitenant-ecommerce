@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Root layout component that sets up global HTML structure, applies the DM Sans font, and provides tRPC context to all child components.
+ * Root layout component that defines the global HTML structure, applies the DM Sans font, and provides tRPC context and toast notifications to all child components.
  *
  * @param children - The content to be rendered within the layout.
  */
