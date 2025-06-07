@@ -8,7 +8,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { CategorySidebar } from "@/app/(app)/(home)/search-filters/category-sidebar";
+import { CategorySidebar } from "./category-sidebar";
+// Or, if it's in a parent folder:
+// import { CategorySidebar } from "../category-sidebar";
+// Adjust the path as needed based on your project structure.
 import Link from "next/link";
 
 interface Props {

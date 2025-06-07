@@ -6,15 +6,18 @@ import { ListFilterIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-import { CategoryDropdown } from "@/app/(app)/(home)/search-filters/category-dropdown";
-import { CategorySidebar } from "@/app/(app)/(home)/search-filters/category-sidebar";
+import { CategoryDropdown } from "./category-dropdown";
+import { CategorySidebar } from "./category-sidebar";
 import { CategoriesGetManyOutput } from "@/modules/categories/type";
+import { useParams } from "next/navigation";
 
 interface Props {
   data: CategoriesGetManyOutput;
 }
 
 export const Categories = ({ data }: Props) => {
+  const params = useParams();
+
   const containerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLDivElement>(null);
   const viewAllRef = useRef<HTMLDivElement>(null);
@@ -23,7 +26,8 @@ export const Categories = ({ data }: Props) => {
   const [isAnyHovered, setIsAnyHovered] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const activeCategory = "all";
+  const categoryParam = params.category as string | undefined;
+  const activeCategory = categoryParam || "all";
 
   const activeCategoryIndex = data.findIndex(
     (cat) => cat.slug === activeCategory
@@ -99,11 +103,10 @@ export const Categories = ({ data }: Props) => {
 
         <div ref={viewAllRef} className="shrink-0">
           <Button
+            variant="elevated"
             className={cn(
-              "h11 px-4 bg-transparent rounded-full hover:bg-white hover:border-!black text-black border transition-colors border-transparent",
-              isActiveCategoryHidden &&
-                !isAnyHovered &&
-                "bg-white border-!black"
+              "h11 px-4 bg-transparent rounded-full hover:bg-white hover:border-black text-black border transition-colors border-transparent",
+              isActiveCategoryHidden && !isAnyHovered && "bg-white border-black"
             )}
             onClick={() => setIsSidebarOpen(true)}
           >
