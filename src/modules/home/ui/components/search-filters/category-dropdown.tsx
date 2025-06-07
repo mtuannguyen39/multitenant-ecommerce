@@ -5,8 +5,13 @@ import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-import { useDropdownPosition } from "@/app/(app)/(home)/search-filters/use-dropdown-position";
-import { SubcategoryMenu } from "@/app/(app)/(home)/search-filters/subcategory-menu";
+// Update the import path below to the correct relative path where use-dropdown-position.ts actually exists.
+// For example, if use-dropdown-position.ts is in the same folder:
+import { useDropdownPosition } from "./use-dropdown-position";
+// Or, if it's one folder up:
+// import { useDropdownPosition } from "../use-dropdown-position";
+// Adjust the path as needed based on your project structure.
+import { SubcategoryMenu } from "./subcategory-menu";
 import Link from "next/link";
 import { CategoriesGetManyOutput } from "@/modules/categories/type";
 
