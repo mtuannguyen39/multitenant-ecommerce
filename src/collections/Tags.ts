@@ -12,7 +12,7 @@ export const Tags: CollectionConfig = {
       required: true,
     },
     {
-      name: "producst",
+      name: "products",
       type: "relationship",
       relationTo: "products",
       hasMany: true,
