@@ -2,6 +2,9 @@ import type { CollectionConfig } from "payload";
 
 export const Products: CollectionConfig = {
   slug: "products",
+  admin: {
+    useAsTitle: "name",
+  },
   access: {
     create: ({ req: { user } }) => {
       return !!(user?.tenants && user.tenants.length > 0);
