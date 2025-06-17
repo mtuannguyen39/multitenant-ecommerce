@@ -2,6 +2,8 @@ import {
   defaultShouldDehydrateQuery,
   QueryClient,
 } from "@tanstack/react-query";
+import superjson from "superjson";
+
 /**
  * Creates and returns a new {@link QueryClient} instance with custom default options.
  *
@@ -16,13 +18,13 @@ export function makeQueryClient() {
         staleTime: 30 * 1000,
       },
       dehydrate: {
-        // serializeData: superjson.serialize,
+        serializeData: superjson.serialize,
         shouldDehydrateQuery: (query) =>
           defaultShouldDehydrateQuery(query) ||
           query.state.status === "pending",
       },
       hydrate: {
-        // deserializeData: superjson.deserialize,
+        deserializeData: superjson.deserialize,
       },
     },
   });
