@@ -5,11 +5,6 @@ export const Products: CollectionConfig = {
   admin: {
     useAsTitle: "name",
   },
-  access: {
-    create: ({ req: { user } }) => {
-      return !!(user?.tenants && user.tenants.length > 0);
-    },
-  },
   fields: [
     {
       name: "name",
