@@ -21,6 +21,9 @@ export const productsRouter = createTRPCRouter({
         collection: "products",
         id: input.id,
         depth: 2, //load the "product.image", "product.tenant", và "product.tenant.image"
+        select: {
+          content: false,
+        },
       });
 
       let isPurchased = false;
@@ -168,6 +171,7 @@ export const productsRouter = createTRPCRouter({
           subcategories: (doc.subcategories?.docs ?? []).map((doc) => ({
             // Because of "depth: 1" it is sure that doc is a type of "Category"
             ...(doc as Category),
+            subcategories: undefined,
           })),
         }));
 
@@ -198,6 +202,9 @@ export const productsRouter = createTRPCRouter({
         sort,
         page: input.cursor,
         limit: input.limit,
+        select: {
+          content: false,
+        },
       });
 
       const dataWithSummarizedReviews = await Promise.all(
