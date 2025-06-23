@@ -1,9 +1,5 @@
 "use client";
 
-import {
-  ProductList,
-  ProductListSkeleton,
-} from "@/modules/library/ui/components/product-list";
 import { ReviewFormSkeleton } from "@/modules/library/ui/components/review-form";
 import { ReviewSidebar } from "@/modules/library/ui/components/review-sidebar";
 import { useTRPC } from "@/trpc/client";

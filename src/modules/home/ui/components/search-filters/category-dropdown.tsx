@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 
 // Update the import path below to the correct relative path where use-dropdown-position.ts actually exists.
 // For example, if use-dropdown-position.ts is in the same folder:
-import { useDropdownPosition } from "./use-dropdown-position";
 // Or, if it's one folder up:
 // import { useDropdownPosition } from "../use-dropdown-position";
 // Adjust the path as needed based on your project structure.
@@ -25,7 +24,6 @@ interface Props {
 export const CategoryDropdown = ({
   category,
   isActive,
-  isNavigation,
   isNavigationHovered,
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
