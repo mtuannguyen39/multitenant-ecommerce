@@ -5,6 +5,7 @@ import { baseProcedure, createTRPCRouter } from "@/trpc/init";
 import { Sort, Where } from "payload";
 import { z } from "zod";
 import { headers as getHeaders } from "next/headers";
+import { TRPCError } from "@trpc/server";
 
 export const productsRouter = createTRPCRouter({
   getOne: baseProcedure
@@ -25,6 +26,13 @@ export const productsRouter = createTRPCRouter({
           content: false,
         },
       });
+
+      if (product.isArchived) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Product not found",
+        });
+      }
 
       let isPurchased = false;
 
@@ -119,7 +127,11 @@ export const productsRouter = createTRPCRouter({
       })
     )
     .query(async ({ ctx, input }) => {
-      const where: Where = {};
+      const where: Where = {
+        isArchived: {
+          not_equals: true,
+        },
+      };
       let sort: Sort = "-createdAt";
 
       if (input.sort === "curated") {
@@ -150,6 +162,13 @@ export const productsRouter = createTRPCRouter({
       if (input.tenantSlug) {
         where["tenant.slug"] = {
           equals: input.tenantSlug,
+        };
+      } else {
+        // Nếu chúng ta đang tải sản phẩm cho cửa hàng công khai (không có noTenantSlug)
+        // Hãy đảm bảo không tải các sản phẩm được đánh dấu là "isPrivate: true" (sử dụng logic đảo ngược với not_equals)
+        // Những sản phẩm này chỉ dành riêng cho cửa hàng của tenant
+        where["isPrivate"] = {
+          not_equals: true,
         };
       }
 
