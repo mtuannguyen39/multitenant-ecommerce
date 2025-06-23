@@ -5,6 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { formatCurrency, generateTenantURL } from "@/lib/utils";
 
+import {
+  defaultJSXConverters,
+  RichText,
+} from "@payloadcms/richtext-lexical/react";
+
 import { Fragment, useState } from "react";
 import { useTRPC } from "@/trpc/client";
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -110,7 +115,10 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
 
             <div className="p-6">
               {data.description ?
-                <p>{data.description}</p>
+                <RichText
+                  data={data.description}
+                  converters={defaultJSXConverters}
+                />
               : <p className="font-medium text-muted-foreground italic">
                   No description provided
                 </p>
@@ -182,6 +190,23 @@ export const ProductView = ({ productId, tenantSlug }: ProductViewProps) => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const ProductViewSkeleton = () => {
+  return (
+    <div className="px-4 lg:px-12 py-18">
+      <div className="border rounded-sm bg-white overflow-hidden">
+        <div className="relative aspect-[3.9] border-b">
+          <Image
+            src={"/placeholder.png"}
+            alt="Placeholder"
+            fill
+            className="object-cover"
+          />
         </div>
       </div>
     </div>
