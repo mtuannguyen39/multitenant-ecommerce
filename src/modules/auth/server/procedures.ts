@@ -1,4 +1,3 @@
-import { z } from "zod";
 import { headers as getHeaders, cookies as getCookies } from "next/headers";
 import { baseProcedure, createTRPCRouter } from "@/trpc/init";
 import { TRPCError } from "@trpc/server";

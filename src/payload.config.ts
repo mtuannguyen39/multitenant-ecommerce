@@ -16,7 +16,6 @@ import { Categories } from "./collections/Categories";
 import { Products } from "./collections/Products";
 import { Tags } from "@/collections/Tags";
 import { Tenants } from "@/collections/Tenants";
-import { Config } from "@/payload-types";
 import { Orders } from "@/collections/Orders";
 import { Reviews } from "@/collections/Review";
 

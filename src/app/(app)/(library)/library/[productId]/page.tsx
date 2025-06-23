@@ -1,4 +1,3 @@
-import { LibraryView } from "@/modules/library/ui/views/library-view";
 import {
   ProductView,
   ProductViewSkeleton,
@@ -12,6 +11,8 @@ interface Props {
     productId: string;
   }>;
 }
+
+export const dynamic = "force-dynamic";
 
 const Page = async ({ params }: Props) => {
   const { productId } = await params;

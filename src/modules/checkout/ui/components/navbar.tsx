@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import { generateTenantURL } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
