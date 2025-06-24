@@ -5,7 +5,7 @@ import { isSuperAdmin } from "@/lib/access";
 const defaultTenantArrayField = tenantsArrayField({
   tenantsArrayFieldName: "tenants",
   tenantsCollectionSlug: "tenants",
-  tenantsArrayTenantFieldName: "tenants",
+  tenantsArrayTenantFieldName: "tenant",
   arrayFieldAccess: {
     read: () => true,
     create: ({ req }) => isSuperAdmin(req.user),

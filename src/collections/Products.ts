@@ -10,7 +10,7 @@ export const Products: CollectionConfig = {
     create: ({ req }) => {
       if (isSuperAdmin(req.user)) return true;
 
-      const tenant = req.user?.tenants?.[0]?.tenants as Tenant;
+      const tenant = req.user?.tenants?.[0]?.tenant as Tenant;
 
       return Boolean(tenant?.stripeDetailSubmitted);
     },

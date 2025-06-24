@@ -139,7 +139,7 @@ export interface User {
   roles?: ('super-admin' | 'user')[] | null;
   tenants?:
     | {
-        tenants: string | Tenant;
+        tenant: string | Tenant;
         id?: string | null;
       }[]
     | null;
@@ -415,7 +415,7 @@ export interface UsersSelect<T extends boolean = true> {
   tenants?:
     | T
     | {
-        tenants?: T;
+        tenant?: T;
         id?: T;
       };
   updatedAt?: T;

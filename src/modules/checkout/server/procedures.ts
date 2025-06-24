@@ -31,7 +31,7 @@ export const checkoutRouter = createTRPCRouter({
     }
 
     //this is an id because of depth: 0
-    const tenantId = user.tenants?.[0]?.tenants as string;
+    const tenantId = user.tenants?.[0]?.tenant as string;
     const tenant = await ctx.db.findByID({
       collection: "tenants",
       id: tenantId,
