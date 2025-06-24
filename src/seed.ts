@@ -163,7 +163,7 @@ const seed = async () => {
       username: "admin",
       tenants: [
         {
-          tenants: adminTenant.id,
+          tenant: adminTenant.id,
         },
       ],
     },
