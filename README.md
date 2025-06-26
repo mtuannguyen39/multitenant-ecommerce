@@ -32,17 +32,27 @@ A multi-tenant e-commerce web application built with [Next.js](https://nextjs.or
 
 1. **Clone the repository**
 git clone https://github.com/mtuannguyen39/multitenant-ecommerce.git
+
+```bash 
 cd multitenant-ecommerce
+```
 
 
-2. **Install dependencies**
+3. **Install dependencies**
+
+```bash
 bun install
+```
 
-3. **Set up environment variables**
+4. **Set up environment variables**
+
 Create a .env file based on .env.example, and fill your MongoDB, Stripe, and Payload credentials.
 
-4. **Run the app**
+6. **Run the app**
+
+```bash
 bun run dev
+```
 
 Visit (http://localhost:3000) in your browser.
 
